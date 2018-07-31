@@ -1,8 +1,8 @@
 {
-    "name": "lenialabs/cheese",
+    "name": "LeniaLabs/Cheese",
     "type": "library",
     "version": "0.0.4alpha",
-    "description": "Cheese Assets, an assets installer for ZF2 applications",
+    "description": "A web interface assets installer for ZF2 applications",
     "keywords": [
         "cheese",
         "asset",
@@ -24,8 +24,8 @@
         "zendframework/zendframework": "^2.5.3"
     },
     "autoload": {
-        "psr-0": {
-            "Cheese": "src"
+        "psr-4": {
+            "LeniaLabs\\Cheese\\": "src/"
         }
     }
 }
