@@ -8,7 +8,7 @@
  */
 
 
-namespace Cheese\Controller;
+namespace LeniaLabs\Cheese\Controller;
 
 
 use Zend\Mvc\Controller\AbstractActionController;

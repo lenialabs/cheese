@@ -10,7 +10,7 @@
  */
 
 
-namespace Cheese;
+namespace LeniaLabs\Cheese;
 
 
 return array(

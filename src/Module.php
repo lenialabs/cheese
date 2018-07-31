@@ -10,7 +10,7 @@
  */
 
 
-namespace Cheese;
+namespace LeniaLabs\Cheese;
 
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
@@ -35,7 +35,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 
     public function getConfig ()
     {
-        return include __DIR__ . '/config/cheese.config.php';
+        return include __DIR__ . '/module.config.php';
     }
 
 
