@@ -1,0 +1,65 @@
+:root {
+    --theme-color: #d84c4c;
+}
+
+* {
+	font-size: 10pt;
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background-color: white;
+	color: grey;
+	margin: 20px;
+}
+
+header {
+	margin-bottom: 20px;
+}
+
+header table img {
+	width: 50px;
+}
+
+header table td.title {
+	color: var(--theme-color);
+	font-size: 2em;
+	font-family: 'Kirang Haerang', cursive;
+}
+
+span.error {
+	color: black;
+}
+
+main table {
+    border-spacing: 3px;
+    border-collapse: separate;
+    width: 100%;
+}
+
+main table th, table td {
+	padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+main table th {
+	text-align: left;
+	background-color: var(--theme-color);
+	color: white;
+}
+
+main table th.mtime {
+	width: 20%;
+}
+
+main table th.kb {
+	width: 10%;
+}
+
+main table td {
+	background-color: #e0e0e0;
+}
+
+.tac {
+	text-align: center;
+}

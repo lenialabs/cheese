@@ -1,0 +1,31 @@
+{
+    "name": "lenialabs/cheese",
+    "type": "library",
+    "version": "0.0.4alpha",
+    "description": "Cheese Assets, an assets installer for ZF2 applications",
+    "keywords": [
+        "cheese",
+        "asset",
+        "assets",
+        "zend",
+        "framework"
+    ],
+    "homepage": "https://github.com/lenialabs/cheese",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lenia Labs",
+            "email": "lenia.labs@gmail.com",
+            "role": "Open Source Software Development Startup"
+        }
+    ],
+    "require": {
+        "php": "^5.6",
+        "zendframework/zendframework": ">=2.5.3",
+    },
+    "autoload": {
+        "psr-4": {
+            "Cheese\\": "src/"
+        }
+    }
+}

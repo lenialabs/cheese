@@ -1,0 +1,39 @@
+<?= $this->doctype() ?>
+
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<title><?= $this->config['cheese.name'] ?></title>
+		<link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    	<link rel="shortcut icon" type="image/x-icon" href="<?= $this->basePath('/assets/cheese/favicon/cheese-favicon.png') ?>" />
+    	<link rel="icon" type="image/x-icon" href="<?= $this->basePath('/assets/cheese/favicon/cheese-favicon.png') ?>" />
+		<link href="<?= $this->basePath('/assets/cheese/css/cheese.css') ?>" media="screen" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<table>
+				<tbody>
+					<tr>
+						<td><img src="<?= $this->basePath('/assets/cheese/img/cheese.png') ?>" alt="Cheese Assets" /></li></td>
+						<td class="title">
+							<?= $this->config['cheese.name'] ?> version <?= $this->config['cheese.version'] ?> by <?= $this->config['cheese.author'] ?>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Download the last version of Cheese at <a href="<?= $this->config['cheese.repository.github'] ?>"><?= $this->config['cheese.repository.github'] ?></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</header>
+		<main>
+			<br />
+			<b><?= $_SERVER['HTTP_HOST'] ?></b><br />
+			<br />
+			<?= $this->content ?>
+		</main>
+		<footer>
+		</footer>
+	</body>
+</html>
