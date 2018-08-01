@@ -35,7 +35,7 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
 
     public function getConfig ()
     {
-        return include __DIR__ . '/module.config.php';
+        return include __DIR__ . '/cheese.module.config.php';
     }
 
 

@@ -35,4 +35,11 @@ return array(
         ),
     ),
 
+    /* la configuración hay que sacarla de aquí */
+
+    'public_directory' => '/public/',
+
+    'module_directory' => '/module/',
+
+
 );

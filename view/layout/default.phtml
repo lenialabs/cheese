@@ -3,7 +3,7 @@
 <html>
 	<meta charset="UTF-8" />
 	<head>
-		<title><?= $this->config['cheese.name'] ?></title>
+		<title><?= $this->composer_config->name ?></title>
 		<link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     	<link rel="shortcut icon" type="image/x-icon" href="<?= $this->basePath('/assets/cheese/favicon/cheese-favicon.png') ?>" />
@@ -17,12 +17,12 @@
 					<tr>
 						<td><img src="<?= $this->basePath('/assets/cheese/img/cheese.png') ?>" alt="Cheese Assets" /></li></td>
 						<td class="title">
-							<?= $this->config['cheese.name'] ?> version <?= $this->config['cheese.version'] ?> by <?= $this->config['cheese.author'] ?>
+							<?= $composer_config->name ?> version <?= $composer_config->version ?> by <?= $composer_config->authors[0]->name ?>
 						</td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>Download the last version of Cheese at <a href="<?= $this->config['cheese.repository.github'] ?>"><?= $this->config['cheese.repository.github'] ?></a></td>
+						<td>Download the last version of Cheese at <a href="<?= $composer_config->homepage ?>"><?= $composer_config->homepage ?></a></td>
 					</tr>
 				</tbody>
 			</table>

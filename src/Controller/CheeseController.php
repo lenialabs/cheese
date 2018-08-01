@@ -20,7 +20,9 @@ class CheeseController extends AbstractActionController
 
     protected $sl = null;
 
-    protected $config = null;
+    protected $module_config = null;
+
+    protected $composer_config = null;
 
 
     public function __construct ($sl)
@@ -30,7 +32,8 @@ class CheeseController extends AbstractActionController
 
         $cheese_module_class = dirname(__NAMESPACE__) . '\\Module';
         $cheese_module = new $cheese_module_class();
-        $this->config = $cheese_module->getConfig();
+        $this->module_config = $cheese_module->getConfig();
+        $this->composer_config = $this->read_composer_json();
     }
 
 
@@ -38,7 +41,7 @@ class CheeseController extends AbstractActionController
     {
     	$root_directory = getcwd();
 
-    	$public_directory = $root_directory . '/' . $this->config['cheese.project.web_folder_name'] . '/';
+    	$public_directory = $root_directory . $this->module_config['public_directory'];
 
     	if (!file_exists($public_directory)) {
     		return new ViewModel(array('report' => '<span class="error">folder <b>' . $public_directory . '</b> does not exist</span>'));
@@ -47,7 +50,7 @@ class CheeseController extends AbstractActionController
     		return new ViewModel(array('report' => '<span class="error">can not write into folder <b>' . $public_directory . '</b></span>'));
     	}
 
-    	$module_directory = $root_directory . '/module/';
+    	$module_directory = $root_directory . $this->module_config['public_directory'];
 
     	$recursive_directory_iterator = new \RecursiveDirectoryIterator($module_directory);
     	$recursive_iterator_iterator = new \RecursiveIteratorIterator($recursive_directory_iterator);
@@ -122,7 +125,8 @@ class CheeseController extends AbstractActionController
         }
         $report .= '</tbody></table>';
 
-        $this->layout()->config = $this->config;
+        $this->layout()->module_config = $this->module_config;
+        $this->layout()->composer_config = $this->composer_config;
 
 		return new ViewModel(array('report' => $report));
 
@@ -133,6 +137,13 @@ class CheeseController extends AbstractActionController
     {
         $kb = number_format(round($bytes / 1024, 1), 1, '.', ',');
         return $kb;
+    }
+
+
+    protected function read_composer_json ()
+    {
+        $composer_json = json_decode(file_get_contents(__DIR__ . '/../../composer.json'));
+        return $composer_json;
     }
 
 }
