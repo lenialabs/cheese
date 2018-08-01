@@ -30,7 +30,7 @@ $ composer require lenialabs/cheese
 
 ### Author
 
-Lenia Labs - <lenia.labs@gmail.com>
+LeniaLabs - <lenia.labs@gmail.com>
 
 ### License
 

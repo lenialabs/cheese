@@ -5,7 +5,7 @@
  * Cheese Assets
  *
  * @link
- * @copyright Copyright (c) 2018 Lenia Labs
+ * @copyright Copyright (c) 2018 LeniaLabs
  * @license
  */
 
