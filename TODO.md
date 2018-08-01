@@ -1,5 +1,7 @@
 # TODO LIST
 
+0. https://getcomposer.org/doc/articles/scripts.md#defining-scripts
+
 1. numero de asset en la fila
 
 2. la pantalla dividida en dos

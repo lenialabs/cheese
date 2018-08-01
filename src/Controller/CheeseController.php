@@ -41,7 +41,10 @@ class CheeseController extends AbstractActionController
     {
     	$root_directory = getcwd();
 
+
     	$public_directory = $root_directory . $this->module_config['public_directory'];
+
+
 
     	if (!file_exists($public_directory)) {
     		return new ViewModel(array('report' => '<span class="error">folder <b>' . $public_directory . '</b> does not exist</span>'));
@@ -50,7 +53,7 @@ class CheeseController extends AbstractActionController
     		return new ViewModel(array('report' => '<span class="error">can not write into folder <b>' . $public_directory . '</b></span>'));
     	}
 
-    	$module_directory = $root_directory . $this->module_config['public_directory'];
+    	$module_directory = $root_directory . $this->module_config['module_directory'];
 
     	$recursive_directory_iterator = new \RecursiveDirectoryIterator($module_directory);
     	$recursive_iterator_iterator = new \RecursiveIteratorIterator($recursive_directory_iterator);
@@ -70,7 +73,7 @@ class CheeseController extends AbstractActionController
 
     	$report = '';
     	$report .= '<br />Assets found in the project<br /><br />';
-        $report .= '<table><thead><th>Filesystem paths of assets found in modules / bundles</th><th class="tac kb">Asset size in KB</th><th class="mtime tac">Server last modification time</th></thead><tbody>';
+        $report .= '<table><thead><th>Assets found in your modules</th><th class="tac kb">Asset size in KB</th><th class="mtime tac">File time</th></thead><tbody>';
         foreach ($assets as $file) {
             $report .= '<tr><td>' . $file . '</td><td class="tac">' . $this->kb(filesize($file)) . ' KB</td><td class="tac">' . date('Y-m-d H:i:s', filemtime($file)) . '</td></tr>';
         }
@@ -119,7 +122,7 @@ class CheeseController extends AbstractActionController
 */
 
         $report .= 'Assets installed in <b>' . $public_assets_directory . '</b><br /><br />';
-        $report .= '<table><thead><th>URL paths of assets installed</th><th class="tac kb">Asset size in KB</th><th class="mtime tac">Server last modification time</th></thead><tbody>';
+        $report .= '<table><thead><th>URLs of assets installed</th><th class="tac kb">Asset size in KB</th><th class="mtime tac">File time</th></thead><tbody>';
         foreach ($assets_installed as $i => $file) {
             $report .= '<tr><td><a href="' . $assets_web_relative[$i] . '">' . $assets_web_relative[$i] . '</a></td><td class="tac">' . $this->kb(filesize($file)) . ' KB</td><td class="tac">' . date('Y-m-d H:i:s', filemtime($file)) . '</td></tr>';
         }
@@ -142,6 +145,7 @@ class CheeseController extends AbstractActionController
 
     protected function read_composer_json ()
     {
+        // @todo return as array
         $composer_json = json_decode(file_get_contents(__DIR__ . '/../../composer.json'));
         return $composer_json;
     }
